@@ -11,7 +11,7 @@ component {
 	 * Application Properties: Modify as you see fit!
 	 * --------------------------------------------------------------------------
 	 */
-	this.name                 = "My ColdBox Application";
+	this.name                 = "URL Shortener";
 	this.sessionManagement    = true;
 	this.sessionTimeout       = createTimespan( 0, 1, 0, 0 );
 	this.setClientCookies     = true;
@@ -66,7 +66,21 @@ component {
 	 * ORM + Datasource Settings
 	 * --------------------------------------------------------------------------
 	 */
-	this.datasource = "coldbox";
+	this.datasources["url_schema"] = {
+		class: "com.mysql.cj.jdbc.Driver", 
+		bundleName: "com.mysql.cj", 
+		bundleVersion: "8.0.33",
+		connectionString: "jdbc:mysql://localhost:3306/URL_SCHEMA?characterEncoding=UTF-8&serverTimezone=America/Vancouver&maxReconnects=3",
+		username: "root",
+		password: "encrypted:226937e61b04d0a4f5f0bba2aabe32593f2744c4ea3a834204fc06988e10860e",
+
+		// optional settings
+		connectionLimit:-1, // default:-1
+		liveTimeout:15, // default: -1; unit: minutes
+		alwaysSetTimeout:true, // default: false
+		validate:false, // default: false
+	};
+	this.datasource="url_schema"; 
 
 	/**
 	 * Fires when the application starts

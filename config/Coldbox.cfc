@@ -16,7 +16,7 @@ component {
 		 */
 		coldbox = {
 			// Application Setup
-			appName                  : getSystemSetting( "APPNAME", "Your app name here" ),
+			appName                  : getSystemSetting( "URL-Shortener-V2", "URL Shortener" ),
 			eventName                : "event",
 			// Development Settings
 			reinitPassword           : "",
