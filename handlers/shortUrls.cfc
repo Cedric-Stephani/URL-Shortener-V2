@@ -11,14 +11,16 @@ component extends="coldbox.system.EventHandler"{
 	this.posthandler_except = "";
 	this.aroundHandler_only = "";
 	this.aroundHandler_except = "";
-	this.allowedMethods = {};
+	
+	this.allowedMethods = {
+		create = "POST"
+	};
 
 	/**
 	 * Display a listing of the resource
 	 */
 	function index( event, rc, prc ){
 		prc.Uri = uriService.getAll(); 
-		event.setView("shortUrls/index"); 
 	}
 
 	/**
@@ -32,7 +34,11 @@ component extends="coldbox.system.EventHandler"{
 	 * add
 	 */
 	function add( event, rc, prc ){
-		event.setView( "shortUrls/add" );
+		prc.urlToAdd=""; 
+		event.paramPrivateValue( "data", {
+			UrlToAdd: ""
+		} );
+		event.setView( "shortUrls/add" ); 
 	}
 
 	/**
@@ -40,6 +46,11 @@ component extends="coldbox.system.EventHandler"{
 	 */
 	function form( event, rc, prc ){
 		event.setView( "shortUrls/form" );
+	}
+
+	function create(event, rc, prc){		
+
+		relocate( "index" );
 	}
 
 

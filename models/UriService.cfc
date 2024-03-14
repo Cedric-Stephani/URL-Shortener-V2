@@ -14,7 +14,7 @@ component singleton accessors="true"{
 	}
 
 	/**
-	 * getAll
+	 * Returns all URI records in the URI Table
 	 */
 	function getAll(){
 		var sql  = "
@@ -28,18 +28,30 @@ component singleton accessors="true"{
 	 * addNew
 	 */
 	function addNew(){
+		var sql = "
+			INSERT INTO URI_TABLE ( SHORT_URL, LONG_URL, CLICK_COUNT )
+			VALUES ( :shortURI, :longURI, :clickCount )
+		";
+		var randomString = getRandomString();
+		var params = {
+			shortURI: { value: randomString, cfsqltype: "varchar" },
+			longURI: { value: arguments.longURI, cfsqltype: "varchar" }, 
+			clickCount: { value: 0, cfsqltype: "integer" }
 
+		};
+
+		return queryExecute( sql, params );
 	}
 
 	/**
 	 * getById
 	 */
 	function getById(){
-
+		return "Not Implemented"; 
 	}
 
 	/**
-	 * getByShortUri
+	 * Return a specific URI record with the specified short URI
 	 */
 	function getByShortUri(required string shortUri){
 		var sql ="
