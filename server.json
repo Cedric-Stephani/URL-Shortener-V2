@@ -1,0 +1,8 @@
+{
+    "name":"URLShortener",
+    "web":{
+        "rewrites":{
+            "enable":"true"
+        }
+    }
+}
