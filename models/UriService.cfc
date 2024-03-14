@@ -17,7 +17,11 @@ component singleton accessors="true"{
 	 * getAll
 	 */
 	function getAll(){
+		var sql  = "
+			SELECT * from URI_TABLE
+		";
 
+		return queryExecute(sql, {}); 
 	}
 
 	/**

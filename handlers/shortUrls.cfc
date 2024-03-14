@@ -3,6 +3,7 @@
  * Implicit Functions: preHandler, postHandler, aroundHandler, onMissingAction, onError, onInvalidHTTPMethod
  */
 component extends="coldbox.system.EventHandler"{
+	property name = "uriService" inject="UriService"; 
 
 	this.prehandler_only 	= "";
 	this.prehandler_except 	= "";
@@ -16,6 +17,7 @@ component extends="coldbox.system.EventHandler"{
 	 * Display a listing of the resource
 	 */
 	function index( event, rc, prc ){
+		prc.Uri = uriService.getAll(); 
 		event.setView("shortUrls/index"); 
 	}
 
