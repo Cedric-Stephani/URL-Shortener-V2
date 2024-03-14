@@ -15,7 +15,7 @@ component {
 		 */
 
 		// Redirect 
-		route("/redirect/:shortUri").to("Redirect.redirectUrl"); 
+		route("/r/:shortUri").to("Redirect.redirectUrl"); 
 
 		// A nice healthcheck route example
 		route( "/healthcheck", function( event, rc, prc ){

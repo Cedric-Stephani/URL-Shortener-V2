@@ -6,7 +6,7 @@
 
 <div class="button" border="1px solid">
 	<a href="#event.buildLink( 'shortUrls.add' )#" class="button is-info is-light">Add New</a>
-</div>a
+</div>
 
 <table class="table table-striped table-hover">
 		<thead>
@@ -17,7 +17,7 @@
 		<tbody>
 			<cfoutput query="#prc.Uri#">
                 <tr>
-                    <td><a href="#event.buildLink( 'redirect.#prc.Uri.SHORT_URL#' )#">#prc.Uri.SHORT_URL#</a></td>
+                    <td><a href="#event.buildLink( 'r.#prc.Uri.SHORT_URL#' )#">#prc.Uri.SHORT_URL#</a></td>
                     <td>#prc.Uri.LONG_URL#</td> 
                     <td>#prc.Uri.CLICK_COUNT#</td> 
                 </tr>

@@ -41,8 +41,15 @@ component singleton accessors="true"{
 	/**
 	 * getByShortUri
 	 */
-	function getByShortUri(){
-
+	function getByShortUri(required string shortUri){
+		var sql ="
+			SELECT SHORT_URL, LONG_URL, CLICK_COUNT from URI_TABLE
+			WHERE SHORT_URL=:shortUri
+		"; 
+		var params = {
+			shortUri: {value: arguments.shortUri}
+		}
+		return queryExecute(sql, params);
 	}
 
 	/**

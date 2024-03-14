@@ -3,6 +3,7 @@
  * Implicit Functions: preHandler, postHandler, aroundHandler, onMissingAction, onError, onInvalidHTTPMethod
  */
 component extends="coldbox.system.EventHandler"{
+	property name="uriService" inject="UriService";
 
 	this.prehandler_only 	= "";
 	this.prehandler_except 	= "";
@@ -16,8 +17,11 @@ component extends="coldbox.system.EventHandler"{
 	 * redirectUrl
 	 */
 	function redirectUrl( event, rc, prc ){
-		//testing 
-		relocate( url = "https:/google.com");
+		// Get the long URI from the database. 
+		prc.relocateUrl = uriService.getByShortURI( event.getValue( "shortURI", "" ) );
+
+		//TODO: add validation. 
+		relocate( url = prc.relocateUrl.LONG_URL);
 	}
 
 
