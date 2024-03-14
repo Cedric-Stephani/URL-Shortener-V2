@@ -31,8 +31,6 @@ component {
 			return { "error" : false, "data" : "testing" };
 		} );
 
-		// @app_routes@
-
 		// Conventions-Based Routing
 		route( ":handler/:action?" ).end();
 	}

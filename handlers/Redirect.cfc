@@ -20,8 +20,12 @@ component extends="coldbox.system.EventHandler"{
 		// Get the long URI from the database. 
 		prc.relocateUrl = uriService.getByShortURI( event.getValue( "shortURI", "" ) );
 
-		//TODO: add validation. 
-		relocate( url = prc.relocateUrl.LONG_URL);
+		if ( prc.relocateUrl.recordCount ){
+			relocate( url = prc.relocateUrl.LONG_URL);
+		} else {
+			// TODO: add a not-found page 
+			event.setView("shortUrls/notfound"); 
+		}
 	}
 
 
