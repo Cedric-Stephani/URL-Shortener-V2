@@ -45,5 +45,25 @@ component singleton accessors="true"{
 
 	}
 
+	/**
+	*	Return a random 10 letter string consisting of uppercase and lowercase letters which will be used as the short URL. 
+	**/ 
+	function getRandomString(){
+		var upperCaseLetters = "a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z";
+		var lowerCaseLetters = "A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z";
+		var compositeList = upperCaseLetters&"|"&lowerCaseLetters;
+		var charsInListen = listLen(compositeList,"|");
+		var count = 1;
+		var randomString = "";
+		
+		//loop from 1 to 10 to generate string
+		while (count LTE 10) {
+				randomString = randomString&listGetAt(compositeList,randRange(1,charsInListen),"|");
+				count = count + 1;
+		}
+		
+		return randomString;
+	}
+
 
 }

@@ -6,21 +6,16 @@
 component {
 
 	function configure(){
-		/**
-		 * --------------------------------------------------------------------------
-		 * Router Configuration Directives
-		 * --------------------------------------------------------------------------
-		 * https://coldbox.ortusbooks.com/the-basics/routing/application-router#configuration-methods
-		 */
 		setFullRewrites( true );
 
 		/**
 		 * --------------------------------------------------------------------------
 		 * App Routes
 		 * --------------------------------------------------------------------------
-		 * Here is where you can register the routes for your web application!
-		 * Go get Funky!
 		 */
+
+		// Redirect 
+		route("/redirect/:shortUri").to("Redirect.redirectUrl"); 
 
 		// A nice healthcheck route example
 		route( "/healthcheck", function( event, rc, prc ){
@@ -30,6 +25,10 @@ component {
 		// A nice RESTFul Route example
 		route( "/api/echo", function( event, rc, prc ){
 			return { "error" : false, "data" : "Welcome to my awesome API!" };
+		} );
+
+		route( "/api/test", function( event, rc, prc ){
+			return { "error" : false, "data" : "testing" };
 		} );
 
 		// @app_routes@
