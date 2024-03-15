@@ -43,7 +43,8 @@ component extends="coldbox.system.EventHandler"{
 
 	function create(event, rc, prc){	
 		uriService.addNew(rc.longUri); 	 
-		relocate( "shortUrls/index" )
+		relocate( "shortUrls/index" );
+			
 	}
 
 	/**
