@@ -34,11 +34,16 @@ component extends="coldbox.system.EventHandler"{
 	 * add
 	 */
 	function add( event, rc, prc ){
-		prc.urlToAdd=""; 
-		event.paramPrivateValue( "data", {
-			UrlToAdd: ""
-		} );
+		event.paramPrivateValue("Uri", {
+			LONG_URL: ""
+		}); 
+
 		event.setView( "shortUrls/add" ); 
+	}
+
+	function create(event, rc, prc){	
+		uriService.addNew(rc.longUri); 	 
+		relocate( "shortUrls/index" )
 	}
 
 	/**
@@ -47,13 +52,6 @@ component extends="coldbox.system.EventHandler"{
 	function form( event, rc, prc ){
 		event.setView( "shortUrls/form" );
 	}
-
-	function create(event, rc, prc){		
-
-		relocate( "index" );
-	}
-
-
 
 }
 

@@ -27,20 +27,24 @@ component singleton accessors="true"{
 	/**
 	 * addNew
 	 */
-	function addNew(){
-		var sql = "
-			INSERT INTO URI_TABLE ( SHORT_URL, LONG_URL, CLICK_COUNT )
-			VALUES ( :shortURI, :longURI, :clickCount )
-		";
-		var randomString = getRandomString();
-		var params = {
-			shortURI: { value: randomString, cfsqltype: "varchar" },
-			longURI: { value: arguments.longURI, cfsqltype: "varchar" }, 
-			clickCount: { value: 0, cfsqltype: "integer" }
+	function addNew(required string longUri){
+		if(len(longUri) > 0 ){
+			var sql = "
+				INSERT INTO URI_TABLE ( SHORT_URL, LONG_URL, CLICK_COUNT )
+				VALUES ( :shortURI, :longURI, :clickCount )
+			";
+			var randomString = getRandomString();
+			var params = {
+				shortURI: { value: randomString, cfsqltype: "varchar" },
+				longURI: { value: arguments.longURI, cfsqltype: "varchar" }, 
+				clickCount: { value: 0, cfsqltype: "integer" }
 
-		};
+			};
 
-		return queryExecute( sql, params );
+			return queryExecute( sql, params );
+		}
+
+		throw; 
 	}
 
 	/**
