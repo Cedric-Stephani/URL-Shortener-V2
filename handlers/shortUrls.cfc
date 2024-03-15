@@ -21,6 +21,7 @@ component extends="coldbox.system.EventHandler"{
 	 */
 	function index( event, rc, prc ){
 		prc.Uri = uriService.getAll(); 
+		event.setView("shortUrls/index"); 
 	}
 
 	/**

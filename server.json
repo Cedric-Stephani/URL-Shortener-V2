@@ -1,4 +1,7 @@
 {
+    "app":{
+        "cfengine":"lucee@5.4.4.38"
+    },
     "name":"URLShortener",
     "web":{
         "rewrites":{
