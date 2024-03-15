@@ -38,7 +38,7 @@ box install
 | Columns  | Type |
 | ------------- | ------------- |
 | ID (PK)  | Int  |
-| LONG_URL | Varchar  |
+| LONG_URL (U) | Varchar  |
 | SHORT_URL  | Varchar  |
 | CLICK_COUNT | Int  |
 
