@@ -47,4 +47,7 @@ box install
 ```bash
 box server start
 ```
+- Note: I ran this with Lucee version 5.4.4.38
+
+4. After starting Lucee you will want to navigate to the following URL: http://{server_port}/shortUrls/index
 ----
